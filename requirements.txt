@@ -1,4 +1,4 @@
-tensorflow==2.19.0
+tensorflow==2.20.0
 keras==2.15.0
 streamlit
 numpy
@@ -9,4 +9,5 @@ seaborn
 pandas
 plotly
 scikit-learn
+
 
