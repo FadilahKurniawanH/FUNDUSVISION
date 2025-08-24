@@ -1,5 +1,5 @@
 tensorflow==2.20.0
-keras==2.15.0
+keras==3.10.0
 streamlit
 numpy
 pillow
@@ -9,5 +9,6 @@ seaborn
 pandas
 plotly
 scikit-learn
+
 
 
