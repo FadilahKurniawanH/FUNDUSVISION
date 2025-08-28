@@ -312,6 +312,12 @@ def detection_page():
                             display_prediction_results(predicted_class, confidence, probabilities)
     
     with col2:
+        # Show prediction history
+        if st.session_state.prediction_history:
+            st.markdown("### 📈 Prediksi Terbaru")
+            history_df = pd.DataFrame(st.session_state.prediction_history[-5:])  # Last 5 predictions
+            st.dataframe(history_df[['image_name', 'prediction', 'confidence']], use_container_width=True)
+        
         st.markdown("### 📋 Petunjuk")
         st.markdown("""
         1. **Unggah Gambar**: Pilih gambar fundus yang jelas
@@ -325,12 +331,6 @@ def detection_page():
         - Fotografi fundus standar
         - Format yang didukung: PNG, JPG, JPEG
         """)
-        
-        # Show prediction history
-        if st.session_state.prediction_history:
-            st.markdown("### 📈 Prediksi Terbaru")
-            history_df = pd.DataFrame(st.session_state.prediction_history[-5:])  # Last 5 predictions
-            st.dataframe(history_df[['image_name', 'prediction', 'confidence']], use_container_width=True)
 
 def display_prediction_results(predicted_class, confidence, probabilities):
     """Display prediction results"""
@@ -553,4 +553,5 @@ def about_page():
         """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
+
     main()
